@@ -27,7 +27,7 @@ PrintString:
 PromptInt:
 	li $v0, 4
 	syscall
-	move $a0, $a1
+	#move $a0, $a1
 	li $v0, 5
 	syscall
 	jr $ra
