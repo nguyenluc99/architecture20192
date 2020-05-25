@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{tikz}
+\usepackage{enumerate}
+% \usepackage{mathptmx}
+\usepackage{geometry}
+\usepackage{ragged2e}
+ \geometry{
+ a4paper,
+% total={170mm,257mm},
+ left=15mm,
+ top=15mm,
+ right=15mm,
+ }
+ \thispagestyle{empty}
+ \usepackage{enumitem}
+ \usepackage{array}
+ % \usepackage[16pt]{moresize}
+\begin{document}
+\setlist[description]{font=\normalfont\itshape\space}
+    % \begin{minipage}[t][][b]{0.45\textwidth}
+    %     \centering 
+    %     TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI\\
+    %     \textbf{VIỆN CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG} \\
+    %     \begin{tikzpicture}
+    %         \draw(0,0) -- (4,0);
+    %     \end{tikzpicture}
+    % \end{minipage}
+    % \begin{minipage}[t][][b]{0.55\textwidth}
+        \centering 
+        \textbf{HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY}\\
+        \textbf{School of Information and Communication Technology} \\
+        \begin{tikzpicture}
+            \draw(0,0) -- (4,0);
+        \end{tikzpicture}
+    % \end{minipage}
+    % \vspace{20pt}
+    \begin{flushright}
+        \textit{Hanoi, May 25th 2020}
+    \end{flushright}
+    {\center \textbf{COMPUTER ARCHITECTURE EXPERIMENTAL REPORT} \vspace{15pt} \\
+        %\textit{Kính gửi: } FAMILY TECHNOLOGY COMPANY LIMITED
+        %\par
+    }
+    \begin{description}%[topsep=0pt, partopsep=0pt]
+        \setlength\itemsep{0pt}
+        \item[Full name:] Nguyễn Văn Lực
+        %\item[Mảng:] Recommend System 
+		\item[Student ID:] 20176812
+		\item[Topic:] Create a program to:
+		\begin{itemize}
+		\item[-] Input an array of integers from the keyboard.
+		\item[-] Find the maximum element of the array.
+		\item[-] Calculate the number of elements in the range of (m, M). Range m, M are inputted from the keyboard.
+		\end{itemize}
+        % \item[Lớp, Khóa:] TT CNTT ICT 01 - K62
+%        \item thoại:] 037 555 0576 
+%        \item[Thời gian thực tập:] Từ 23 tháng 9 năm 2019 
+%        \item[Email:] nguyenlucitbk@gmail.com 
+    \end{description}
+\begin{enumerate}[label=\textbf{\Roman*}]
+        \item \textbf{Procedure:} \\
+        \begin{enumerate}
+        	\item Prompt to input the number of element and value of elements in array.
+        	\item Initialize $max$ value to be the first number of the array.
+        	\item For each element inserted, check if it is greater than current maximum value, and assign new maximum if it is greater.
+        	\item Print out the maximum value when all n elements are inserted.
+        	\item Prompt to input 2 value, $m$ and $M$.
+        	\item Check if $m < M$. If not, quit the program since $(m,M)$ is not a valid range. If yes, initialize a variable $count = 0$ to count the number of element in array satisfied the condition.
+        	\item For each $value$ of element in array, check if $m < value$ and $value < M$. If satisfied, increase the variable $count$ by 1.
+        	\item When reach the last element, print the value of $count$ and quit the program.
+        \end{enumerate}
+        \item \textbf{The meaning of used registers}
+        \begin{description}
+        	\item{ $\$s0$} : Store the number of elements ($n$) in array, this will not be changed.
+        	\item $\$s1$ : Store the maximum element of the array, this will be changed while searching for maximum element.
+        	\item $\$s2$ : Store the pointer to the last element of the array, this register will be decreased from the register $\$sp$ continuously.
+        	\item $\$s3$ : Store the value of $m$.
+        	\item $\$s4$ : Store the value of $M$.
+        	\item $\$s5$ : Store the value of the variable $count$.
+        	\item $\$t0$ : Running index, from 0 to $n$ ($\$s0$)
+        	\item $\$t1$ : Store the index to print, this always equals to $\$s1 + 1$, used to print to the user the order of element needed to be inserted.
+        	\item $\$t2$ : Temporarily store the value of the $\$t1$-th element inserted above before saving it to stack.
+        	\item $\$t3$ : First, check whether the current maximum value is smaller than the value of new element inserted above. Second, re-use it to check if $m < M$, if $m < value$, and if $value < M$ where $value$ is value of element loaded from the array to check if it is in range $(m, M)$.
+        	\item $\$t4$ : Running address, from $\$s2$ stored above to $\$sp$ to get the value of element in array.
+        	\item $\$t5$ : Temporarily store the value of element loaded by $\$t4$. 
+        \end{description}
+%        \end{itemize}
+        \item \textbf{The meaning of used sub-program}\\
+        Here I used programs defined in the library $utils.asm$ as following:
+        \begin{description}
+        	\item [PromptInt :] Used to print the string whose address is loaded in the register $\$a0$, prompt to get new integer value inserted from keyboard, which is then stored in the register $\$v0$.
+        	\item[PrintString :] Used to print the string whose address is loaded in the register $\$a0$.
+        	\item[PrintInt :] Used to print the string whose address is loaded in the register $\$a0$ and an integer whose value is loaded in the register $\$a1$.
+        	\item[Exit :] Used to quit the program.
+        \end{description}
+\end{enumerate}
+
+
+\end{document}
