@@ -1,99 +1,81 @@
 # Mars bot
-.eqv HEADING 0xffff8010 
-.eqv MOVING 0xffff8050
-.eqv LEAVETRACK 0xffff8020 
-.eqv WHEREX 0xffff8030 
-.eqv WHEREY 0xffff8040  
+.eqv 	HEADING 	0xffff8010 
+.eqv 	MOVING 		0xffff8050
+.eqv 	LEAVETRACK 	0xffff8020  
+.eqv 	WHEREX 		0xffff8030  
+.eqv 	WHEREY 		0xffff8040  
 # Key matrix   
-.eqv OUT_ADDRESS_HEXA_KEYBOARD 0xFFFF0014 
-.eqv IN_ADDRESS_HEXA_KEYBOARD 0xFFFF0012 
+.eqv 	OUT_ADDRESS_HEXA_KEYBOARD 	0xFFFF0014  
+.eqv 	IN_ADDRESS_HEXA_KEYBOARD 	0xFFFF0012 
  
 
 .data 
-str1: .asciiz "string Comeback \n" 
-str2: .asciiz "string print \n"
-str3: .asciiz "Stop tracking\n"
-pscript1: .word 90,2000,0, 180,3000,0, 180,5790,1, 80,500,1, 70,500,1, 60,500,1, 50,500,1, 40,500,1, 30,500,1, 20,500,1, 10,500,1, 0,500,1, 350,500,1, 340,500,1, 330,500,1, 320,500,1, 310,500,1, 300,500,1, 290,500,1, 280,490,1, 90,2000,0, 270,500,1, 260,500,1, 250,500,1, 240,500,1, 230,500,1, 220,500,1, 210,500,1, 200,500,1, 190,500,1, 180,500,1, 170,500,1, 160,500,1, 150,500,1, 140,500,1, 130,500,1, 120,500,1, 110,500,1, 100,500,1, 90,1000,1, 90,5000,0, 270,2000,1, 0,5800,1, 90,2000,1, 180,2900,0, 270,2000,1, 90,3000,0
-end1:	.word 
-pscript2: .word 90,2000,0, 180,3000,0, 180,5790,1, 80,500,1, 70,500,1, 60,500,1, 50,500,1, 40,500,1, 30,500,1, 20,500,1, 10,500,1, 0,500,1, 350,500,1, 340,500,1, 330,500,1, 320,500,1, 310,500,1, 300,500,1, 290,500,1, 280,490,1, 90,7000,0, 200,6020,1, 90,4160,0, 340,6020,1, 200,3000,0, 90,2000,1, 90,5000,0, 180,2900,0, 0,5500,1, 270,2500,0, 90,5000,1, 90,1000,0
-# ps6:  "U"
-#pscript6: .word 180, 2000, 1, 170, 100, 1, 160, 100, 1, 150, 100, 1, 140, 100, 1, 130, 100, 1, 120, 100, 1, 110, 100, 1, 100, 100, 1, 90, 100, 1, 80, 100, 1, 70, 100, 1, 60, 100, 1, 50, 100, 1, 40, 100, 1, 30, 100, 1, 20, 100, 1, 10, 100, 1, 0, 2000, 1,
-end2:	.word
-pscript3: .word 90,2000,0, 180,3000,0, 180,5790,1, 80,500,1, 70,500,1, 60,500,1, 50,500,1, 40,500,1, 30,500,1, 20,500,1, 10,500,1, 0,500,1, 350,500,1, 340,500,1, 330,500,1, 320,500,1, 310,500,1, 300,500,1, 290,500,1, 280,490,1, 90,2000,0, 270,500,1, 260,500,1, 250,500,1, 240,500,1, 230,500,1, 220,500,1, 210,500,1, 200,500,1, 190,500,1, 180,500,1, 170,500,1, 160,500,1, 150,500,1, 140,500,1, 130,500,1, 120,500,1, 110,500,1, 100,500,1, 90,1000,1, 90,5000,0, 270,2000,1, 0,5800,1, 90,2000,1, 180,2900,0, 270,2000,1, 90,3000,0
-#pscript5: .word 90, 500, 0, 150, 500, 1
-end3:	.word
-pscript4: .word	90, 1000, 1, 180, 100, 0
-end4:	.word
+
+# DCE:
+pscript1: 	.word 135, 2000, 0, 180, 5800, 1, 90, 500, 1, 80, 500, 1, 70, 500, 1, 60, 500, 1, 50, 500, 1, 40, 500, 1, 30, 500, 1, 20, 500, 1, 10, 500, 1, 0, 500, 1, 350, 500, 1, 340, 500, 1, 330, 500, 1, 320, 500, 1, 310, 500, 1, 300, 500, 1, 290, 500, 1, 280,  500, 1, 270,  500, 1, 90, 7000, 0,  270, 500, 1, 260, 500, 1, 250, 500, 1, 240, 500, 1, 230, 500, 1, 220, 500, 1, 210, 500, 1, 200, 500, 1, 190, 500, 1, 180, 500, 1, 170, 500, 1, 160, 500, 1, 150, 500, 1, 140, 500, 1, 130, 500, 1, 120, 500, 1, 110, 500, 1, 100, 500, 1, 90,  500, 1, 90, 5000, 0, 270, 2900, 1, 0, 2900, 1, 90, 2900, 1, 270, 2900, 0, 0, 2900, 1, 90, 2900, 1, 270, 12000, 0, 180, 6000, 0
+end2:		.word
+# "ICT"
+pscript2: 	.word 135, 2000, 0, 90, 1000, 1, 270, 500, 0, 180, 5800, 1, 270, 500, 0, 90, 1000, 1, 0, 5800, 0, 90, 4000, 0, 270, 500, 1, 260, 500, 1, 250, 500, 1, 240, 500, 1, 230, 500, 1, 220, 500, 1, 210, 500, 1, 200, 500, 1, 190, 500, 1, 180, 500, 1, 170, 500, 1, 160, 500, 1, 150, 500, 1, 140, 500, 1, 130, 500, 1, 120, 500, 1, 110, 500, 1, 100, 500, 1, 90,  500, 1, 90, 4000, 0, 0, 5800, 1, 270, 2000, 0, 90, 4000, 1, 270, 10414, 0, 180, 5800, 0
+end1:		.word 
+# LUC
+pscript3: 	.word 135, 2000, 0, 180, 6000, 1, 90, 3200, 1, 0, 6000, 0, 90, 1500, 0, 180, 4700, 1, 170, 300, 1, 160, 300, 1, 150, 300, 1, 140, 300, 1, 130, 300, 1, 120, 300, 1, 110, 300, 1, 100, 300, 1, 90, 300, 1, 80, 300, 1, 70, 300, 1, 60, 300, 1, 50, 300, 1, 40, 300, 1, 30, 300, 1, 20, 300, 1, 10, 300, 1, 0, 4700, 1, 90, 4000, 0, 270, 500, 1, 260, 500, 1, 250, 500, 1, 240, 500, 1, 230, 500, 1, 220, 500, 1, 210, 500, 1, 200, 500, 1, 190, 500, 1, 180, 500, 1, 170, 500, 1, 160, 500, 1, 150, 500, 1, 140, 500, 1, 130, 500, 1, 120, 500, 1, 110, 500, 1, 100, 500, 1, 90,  500, 1, 270, 10551, 0, 180, 500, 0
+end3:		.word
 .text
-main:
-    #li $s0, IN_ADRESS_HEXA_KEYBOARD  
-    #li $s1, OUT_ADRESS_HEXA_KEYBOARD 
-    la	$s1, end1
-    la	$s2, end2 
-    la	$s3, end3
-    la	$s4, end4
-    #la $a2, pscript2    
-    #j PRINT 
-	li $t1, IN_ADDRESS_HEXA_KEYBOARD
-	li $t2, OUT_ADDRESS_HEXA_KEYBOARD 
+main:	
+	#	load the ends of three pscripts
+	la	$s1, end1
+	la	$s2, end2
+	la	$s3, end3
+	li 	$t1, IN_ADDRESS_HEXA_KEYBOARD
+	li 	$t2, OUT_ADDRESS_HEXA_KEYBOARD
 	
 polling:  
-# case 1:
-	li $t0, 0x01
-	sb $t0, 0($t1)
-	lb $a0, 0($t2)
-	beq $a0, 0x11, NUMPAD_0
-# case 2: Considering the number pad 4
+# case 1: Check if the button is 0
+	li 	$t0, 0x01
+	sb 	$t0, 0($t1)
+	lb 	$a0, 0($t2)
+	beq 	$a0, 0x11, NUMPAD_0
+# case 2: Check if the button is 4
 	#NOT_NUMPAD_0:
-	li $t0, 0x02
-	sb $t0, 0($t1)
-	lb $a0, 0($t2)
-	beq $a0, 0x12, NUMPAD_4
-# case 3: Considering the number pad 8
-	#NOT_NUMPAD_4:
-	li $t0, 0x04
-	sb $t0, 0($t1)
-	lb $a0, 0($t2)
-	beq $a0, 0x14, NUMPAD_8
-# casd 4: consider "C" to quit:  
-	li $t0, 0x08
-	sb $t0, 0($t1)
-	lb $a0, 0($t2)
-	beq $a0, 0x18, NUMPAD_C
-# No in case 0, 4, 8: Return polling
-		j polling 
+	li 	$t0, 0x02
+	sb 	$t0, 0($t1)
+	lb 	$a0, 0($t2)
+	beq 	$a0, 0x12, NUMPAD_4
+# case 3: Check if the button is 8
+	#NOT_NUMPAD_4: 
+	li 	$t0, 0x04
+	sb 	$t0, 0($t1)
+	lb 	$a0, 0($t2)
+	beq 	$a0, 0x14, NUMPAD_8
+# casd 4: Check if the button is C to quit: 
+	li 	$t0, 0x08
+	sb 	$t0, 0($t1)
+	lb 	$a0, 0($t2)
+	beq 	$a0, 0x18, NUMPAD_C
+# Not in case 0, 4, 8: Return polling
+		j 	polling 
 	NUMPAD_0:
-		la $t3, pscript1
-		j PRINT 
+		la 	$t3, pscript1	# load pscript1 if click 0
+		j 	PRINT  
 	NUMPAD_4:
-		la $t3, pscript2
-		j PRINT
+		la 	$t3, pscript2	# load pscript2 if click 4
+		j 	PRINT
 	NUMPAD_8:
-		la $t3, pscript3
-		j PRINT
+		la 	$t3, pscript3	# load pscript3 if click 8
+		j 	PRINT
 	NUMPAD_C:
-		li $v0, 10
+		li 	$v0, 10		# cancel the program
 		syscall
 PRINT:	
-	li $v0, 34
+	li 	$a0, 300
+	li 	$v0, 32
 	syscall
-	la $a0, str2
-	li $v0, 4
-	syscall
-	li $a0, 300
-	li $v0, 32
-	syscall
+	nop
 	
-    jal GO
-    nop
-    
-#   register memories:
-# a0: value of number user clicked
-# a1: address of postscript
-# t0: 
-#
-	#add	$a2, $a1, $zero		# 
-reading:
+	jal 	GO
+	nop
+	
+READING:
 	jal	UNTRACK 
 	nop
 	jal	TRACK
@@ -102,49 +84,42 @@ reading:
 	li 	$at, LEAVETRACK		# assign track
 	sb 	$a0, 0($at) 
 	# 
-	lw	$a0, 0($t3)
-	jal	ROTATE
+	lw	$a0, 0($t3)		# get angle to rotate
+	jal	ROTATE			# rotate
 	nop 
-	lw	$a0, 4($t3) 
-	jal 	DRAW_LINE
+	lw	$a0, 4($t3) 		# get time to draw
+	jal 	DRAW_LINE		# draw line
 	nop
-	addi	$t3, $t3, 12
-	beq	$t3, $s1, stop_tracking
+	addi	$t3, $t3, 12		# increase to next line
+	# quit if reach the last element
+	beq	$t3, $s1, STOP_TRACKING
 	nop
-	beq	$t3, $s2, stop_tracking
+	beq	$t3, $s2, STOP_TRACKING
 	nop
-	beq	$t3, $s3, stop_tracking
+	beq	$t3, $s3, STOP_TRACKING
 	nop
-	beq	$t3, $s4, stop_tracking
+	beq	$t3, $s4, STOP_TRACKING
 	nop
-	#slt 	$t0, $a2, $s4 
-	#beqz	$a2,  stop_tracking
-	#nop
-	j 	reading
+	
+	j 	READING			# continue reading line
 	
 DRAW_LINE:
-  	addi $v0, $zero, 32
-  	syscall 
-  	jr $ra
+  	addi 	$v0, $zero, 32
+  	syscall 			# draw line for the time in $a0
+  	jr 	$ra
 
-stop_tracking:
-	li $v0, 4
-	la $a0, str3
-	syscall
-	j END_READING
-    	#j next_pc
-
+STOP_TRACKING:
+	j 	END_READING
  
 UNTRACK_LINE:
-    jal 	UNTRACK
+	jal 	UNTRACK
 
 
 END_READING:
-	li $t0, 0x21
+	li 	$t0, 0x21
 	sb 	$t0, 0($t2)
-	jal STOP
-	j polling
-
+	jal 	STOP			# 
+	j 	polling			# comeback to perform new request
 
 # -----    utils   -----
 UNTRACK:
@@ -183,5 +158,4 @@ GO:
 	nop
 	jr 	$ra
 	nop
-# -----    utils   -----
-
+	
